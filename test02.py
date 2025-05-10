@@ -1,10 +1,18 @@
 import random
 
-# 乱数のシードを設定する。これにより、コードの実行結果を再現可能にする。
-random.seed(42)  # 任意のシード値を設定
+class RandomNumberGenerator:
+    def __init__(self, seed=None):
+        self.seed = seed
+        if self.seed:
+            random.seed(self.seed)
 
-# 0から100までのランダムな整数を生成
-random_number = random.randint(0, 100)
+    def generate(self):
+        return random.randint(1, 10)
 
-# 生成したランダムな数を出力
-print(f"生成されたランダムな数: {random_number}")
+    def generate_multiple(self, num):
+        return [self.generate() for _ in range(num)]
+
+# 例としてシード値を設定し、乱数を生成して出力します。
+generator = RandomNumberGenerator(seed=42)
+print(f"生成された乱数: {generator.generate()}")
+print(f"生成された乱数(複数): {generator.generate_multiple(5)}")
