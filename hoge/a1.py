@@ -1,2 +1,6 @@
 x=10
-print()
+print(x)
+print(x)
+print(x)
+print(x)
+print(x)
